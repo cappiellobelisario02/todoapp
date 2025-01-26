@@ -1,7 +1,5 @@
 package model;
 
-import java.util.concurrent.atomic.AtomicInteger;
-
 public class Todo {
 
     private String title;

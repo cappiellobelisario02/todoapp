@@ -2,10 +2,6 @@ package controller;
 
 import model.Todo;
 import view.ConsoleView;
-import view.View;
-
-import java.io.Console;
-import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -27,18 +23,13 @@ public class TodoController {
 
             switch(choice){
                 case "1" -> addTodo();
-                case "2" -> {
-                    todoView.displayTodos(todoService.getAllTodos());
-                }
+                case "2" -> todoView.displayTodos(todoService.getAllTodos());
                 case "3" -> deleteTodo();
                 case "0" -> {
                     todoView.displayMessage("Arrivederci, alla prossima!");
                     return;
                 }
-                default -> {
-                    todoView.displayMessage("Non e' possibile eseguire questo comando, riprova per favore...");
-
-                }
+                default -> todoView.displayMessage("Non e' possibile eseguire questo comando, riprova per favore...");
             }
             todoView.waitForEnter();
         }
@@ -47,7 +38,6 @@ public class TodoController {
 
 
     public void addTodo() {
-
         String title = todoView.getInput("Dimmi per favore come si chiama l'impegno: ");
         String description = todoView.getInput("Descrivimi l'impegno per favore: ");
 
