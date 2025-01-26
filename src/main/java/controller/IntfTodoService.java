@@ -1,4 +1,6 @@
-package model;
+package controller;
+
+import model.Todo;
 
 import java.util.Map;
 

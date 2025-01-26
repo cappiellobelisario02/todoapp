@@ -1,7 +1,12 @@
 package main;
 
+import controller.TodoController;
+import controller.TodoService;
+import view.ConsoleView;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello World");
+        TodoController todoController = new TodoController(new TodoService(), new ConsoleView());
+        todoController.start();
     }
 }

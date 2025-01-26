@@ -1,16 +1,20 @@
-package model;
+package controller;
+
+import model.Todo;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class TodoService implements IntfTodoService{
 
     private final Map<Integer, Todo> todos = new HashMap<>();
-    private int todoCounter = 0;
+    private static final AtomicInteger ID_GENERATOR = new AtomicInteger(0);
+
 
     @Override
     public void addTodo(Todo todo) {
-        todos.put(todoCounter++, todo);
+        todos.put(ID_GENERATOR.incrementAndGet(), todo);
     }
 
     @Override
@@ -25,9 +29,6 @@ public class TodoService implements IntfTodoService{
 
     @Override
     public Todo getTodo(int id) {
-        if (todos.containsKey(id)){
-            return todos.get(id);
-        }
         return null;
     }
 }
